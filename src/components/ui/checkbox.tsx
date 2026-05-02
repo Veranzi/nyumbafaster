@@ -13,8 +13,8 @@ export const Checkbox = React.forwardRef<
         ref={ref}
         className={cn(
             "peer h-4 w-4 shrink-0 rounded border border-zinc-400 ring-offset-white",
-            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500",
-            "data-[state=checked]:bg-gold-600 data-[state=checked]:text-white data-[state=checked]:border-gold-600",
+            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500",
+            "data-[state=checked]:bg-emerald-600 data-[state=checked]:text-white data-[state=checked]:border-emerald-600",
             "disabled:cursor-not-allowed disabled:opacity-50",
             className,
         )}

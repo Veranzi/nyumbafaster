@@ -25,7 +25,7 @@ export function BookingForm({ listing }: { listing: ListingContext }) {
     return (
         <form
             onSubmit={(e) => e.preventDefault()}
-            className="space-y-4 rounded-xl border border-cream-200 bg-cream-50 p-6 shadow-sm dark:border-ink-700 dark:bg-ink-800"
+            className="space-y-4 rounded-xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-950"
         >
             <div className="grid grid-cols-2 gap-4">
                 <div className="col-span-2 sm:col-span-1">
@@ -96,7 +96,7 @@ export function BookingForm({ listing }: { listing: ListingContext }) {
                     </Button>
                 )}
                 {env.contact.whatsapp && (
-                    <p className="pt-1 text-center text-xs text-ink-700/60 dark:text-cream-50/50">
+                    <p className="pt-1 text-center text-xs text-zinc-500">
                         Goes to <span className="font-medium tabular-nums">{displayWhatsApp()}</span>
                     </p>
                 )}

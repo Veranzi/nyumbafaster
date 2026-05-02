@@ -1,23 +1,25 @@
 import Link from "next/link";
 import { getTranslations, getLocale } from "next-intl/server";
+import { Home as HomeIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LanguageSwitcher } from "@/components/language-switcher";
-import { BrandMark } from "@/components/brand-mark";
 import { WhatsAppIcon } from "@/components/whatsapp-icon";
 import { env } from "@/lib/env";
 
 export async function Nav() {
     const t = await getTranslations("nav");
+    const tBrand = await getTranslations("brand");
     const locale = (await getLocale()) as "en" | "sw";
     const whatsappHref = env.contact.whatsapp
         ? `https://wa.me/${env.contact.whatsapp.replace(/\D+/g, "")}`
         : null;
 
     return (
-        <header className="sticky top-0 z-30 border-b border-cream-200/80 bg-cream-50/85 backdrop-blur-md dark:border-ink-700 dark:bg-ink-900/85">
-            <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
-                <Link href="/" className="group">
-                    <BrandMark className="text-base md:text-lg transition-opacity group-hover:opacity-80" />
+        <header className="sticky top-0 z-30 border-b border-zinc-200 bg-white/80 backdrop-blur dark:border-zinc-800 dark:bg-zinc-950/80">
+            <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4">
+                <Link href="/" className="flex items-center gap-2 font-semibold">
+                    <HomeIcon className="h-5 w-5 text-emerald-600" />
+                    <span>{tBrand("name")}</span>
                 </Link>
 
                 <nav className="hidden md:flex items-center gap-1">

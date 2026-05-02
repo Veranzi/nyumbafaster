@@ -19,11 +19,11 @@ export default async function BookViewingPage({ params }: { params: Promise<Para
     return (
         <div className="mx-auto max-w-xl px-4 py-12">
             <h1 className="text-2xl font-semibold tracking-tight">{t("title")}</h1>
-            <p className="mt-1 text-sm text-ink-700/70 dark:text-cream-50/60">
+            <p className="mt-1 text-sm text-zinc-500">
                 {property.title} — {property.estate} · <span className="tabular-nums">{formatRent(property.rent_kes)}</span>/mo
             </p>
 
-            <div className="mt-6 rounded-xl border border-gold-200 bg-gold-50 p-4 text-sm text-gold-900 dark:border-gold-700/40 dark:bg-gold-950/30 dark:text-gold-200">
+            <div className="mt-6 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-900 dark:border-emerald-900/40 dark:bg-emerald-950/30 dark:text-emerald-200">
                 We'll open WhatsApp with your details so the NyumbaFaster team can confirm your viewing.
                 No account needed.
             </div>

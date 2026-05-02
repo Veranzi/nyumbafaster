@@ -44,7 +44,7 @@ export function ListingMap({ lng, lat, zoom = 15, className }: Props) {
             center: [lng, lat],
             zoom,
         });
-        new maplibregl.Marker({ color: "#D4960C" }).setLngLat([lng, lat]).addTo(map);
+        new maplibregl.Marker({ color: "#059669" }).setLngLat([lng, lat]).addTo(map);
         mapRef.current = map;
 
         return () => {

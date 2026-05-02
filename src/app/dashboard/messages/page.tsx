@@ -52,7 +52,7 @@ export default async function MessagesPage() {
                                         <div className="text-xs text-zinc-500">{property?.estate}</div>
                                     </div>
                                     {unread > 0 && (
-                                        <span className="rounded-full bg-gold-600 px-2 py-0.5 text-xs font-medium text-white">
+                                        <span className="rounded-full bg-emerald-600 px-2 py-0.5 text-xs font-medium text-white">
                                             {unread}
                                         </span>
                                     )}

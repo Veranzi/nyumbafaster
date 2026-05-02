@@ -38,7 +38,7 @@ export function ContactHost({ listing }: { listing: ListingContext }) {
                 </Button>
             )}
             {env.contact.whatsapp && (
-                <p className="pt-1 text-center text-xs text-ink-700/60 dark:text-cream-50/50">
+                <p className="pt-1 text-center text-xs text-zinc-500">
                     or text us at <span className="font-medium tabular-nums">{displayWhatsApp()}</span>
                 </p>
             )}

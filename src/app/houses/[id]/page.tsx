@@ -68,7 +68,7 @@ export default async function ListingDetailPage({ params }: { params: Promise<Pa
 
             {/* VIDEO WALKTHROUGH ───────────────────────── */}
             {walkthrough && (
-                <div className="mt-4 overflow-hidden rounded-xl border border-cream-200 bg-black dark:border-ink-700">
+                <div className="mt-4 overflow-hidden rounded-xl border border-zinc-200 bg-black dark:border-zinc-800">
                     <video
                         src={mediaUrl(walkthrough)}
                         poster={posterPath ? mediaUrl(posterPath) : undefined}
@@ -111,7 +111,7 @@ export default async function ListingDetailPage({ params }: { params: Promise<Pa
                     <ul className="mt-3 grid grid-cols-2 gap-2 text-sm">
                         {amenityRows(p.amenities).map(([key, label, Icon]) => (
                             <li key={key} className="inline-flex items-center gap-2">
-                                <Icon className="h-4 w-4 text-gold-600" />
+                                <Icon className="h-4 w-4 text-emerald-600" />
                                 {label}
                             </li>
                         ))}
@@ -133,28 +133,26 @@ export default async function ListingDetailPage({ params }: { params: Promise<Pa
 
                 {/* SIDEBAR ─────────────────────────────── */}
                 <aside className="space-y-4">
-                    <div className="rounded-xl border border-cream-200 bg-cream-50 p-5 shadow-sm dark:border-ink-700 dark:bg-ink-800">
-                        <div className="text-2xl font-semibold tabular-nums text-gold-700 dark:text-gold-400">
-                            {formatRent(p.rent_kes)}
-                        </div>
-                        <div className="text-xs text-ink-700/60 dark:text-cream-50/50">{t("rent_per_month")}</div>
+                    <div className="rounded-xl border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-950">
+                        <div className="text-2xl font-semibold tabular-nums">{formatRent(p.rent_kes)}</div>
+                        <div className="text-xs text-zinc-500">{t("rent_per_month")}</div>
 
                         <dl className="mt-4 space-y-1.5 text-sm">
                             <div className="flex justify-between">
-                                <dt className="text-ink-700/60 dark:text-cream-50/50">Deposit</dt>
+                                <dt className="text-zinc-500">Deposit</dt>
                                 <dd className="tabular-nums">
                                     {p.deposit_months} month{p.deposit_months === 1 ? "" : "s"} ({formatKES(p.deposit_months * p.rent_kes)})
                                 </dd>
                             </div>
                             <div className="flex justify-between">
-                                <dt className="text-ink-700/60 dark:text-cream-50/50">{t("viewing_fee")}</dt>
+                                <dt className="text-zinc-500">{t("viewing_fee")}</dt>
                                 <dd className="tabular-nums">
                                     {p.viewing_fee_kes === 0 ? t("no_viewing_fee") : formatKES(p.viewing_fee_kes)}
                                 </dd>
                             </div>
                         </dl>
 
-                        <div className="mt-5 border-t border-cream-200 pt-4 dark:border-ink-700">
+                        <div className="mt-5 border-t border-zinc-200 pt-4 dark:border-zinc-800">
                             <ContactHost
                                 listing={{
                                     title: p.title,
@@ -167,14 +165,12 @@ export default async function ListingDetailPage({ params }: { params: Promise<Pa
                     </div>
 
                     {p.owner && (
-                        <div className="rounded-xl border border-cream-200 bg-cream-50 p-5 dark:border-ink-700 dark:bg-ink-800">
-                            <div className="text-xs uppercase tracking-wide text-ink-700/60 dark:text-cream-50/50">
-                                {t("host_title")}
-                            </div>
+                        <div className="rounded-xl border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-950">
+                            <div className="text-xs uppercase tracking-wide text-zinc-500">{t("host_title")}</div>
                             <div className="mt-1 font-semibold">
                                 {p.owner.agency_name ?? p.owner.full_name ?? "—"}
                             </div>
-                            <div className="text-xs text-ink-700/60 dark:text-cream-50/50">
+                            <div className="text-xs text-zinc-500">
                                 {p.listed_by_agent ? "Property agent" : "Landlord"}
                             </div>
                             <div className="mt-3"><VerificationBadge status={p.owner.verification_status} /></div>
@@ -183,7 +179,7 @@ export default async function ListingDetailPage({ params }: { params: Promise<Pa
                                     ⭐ {p.owner.rating_avg?.toFixed(1)} ({p.owner.rating_count})
                                 </div>
                             ) : (
-                                <div className="mt-2 text-sm text-ink-700/60 dark:text-cream-50/50">{t("no_reviews_yet")}</div>
+                                <div className="mt-2 text-sm text-zinc-500">{t("no_reviews_yet")}</div>
                             )}
                         </div>
                     )}

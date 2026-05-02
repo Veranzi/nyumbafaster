@@ -24,7 +24,7 @@ export default async function NewListingPage() {
                 </p>
                 <a
                     href="/dashboard/verify"
-                    className="mt-3 inline-block rounded-lg bg-gold-600 px-4 py-2 text-sm font-medium text-white"
+                    className="mt-3 inline-block rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white"
                 >
                     Start verification
                 </a>
