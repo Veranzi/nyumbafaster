@@ -36,6 +36,11 @@ export const env = {
         commissionBps:  Number(process.env.NEXT_PUBLIC_VIEWING_FEE_COMMISSION_BPS ?? process.env.KEJA_VIEWING_FEE_COMMISSION_BPS ?? 1000),
         maptilerKey:    process.env.NEXT_PUBLIC_MAPTILER_KEY ?? "",
     },
+    // Direct contact channel used while sign-in + M-Pesa are disabled.
+    contact: {
+        whatsapp: process.env.NEXT_PUBLIC_CONTACT_WHATSAPP ?? "",
+        email:    process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "",
+    },
 } as const;
 
 /**

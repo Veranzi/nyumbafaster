@@ -3,6 +3,7 @@
 import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
+import type { SupabaseClient } from "@supabase/supabase-js";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -12,23 +13,37 @@ import { normalizeKenyanMobile } from "@/lib/format";
 type Step = "phone" | "otp";
 
 export function SignInForm({ next }: { next?: string }) {
-    const t = useTranslations("auth");
-    const router = useRouter();
+    // Hook order must be stable, so we resolve the client outside any conditional
+    // and split the configured/unconfigured paths into two separate components.
     const supabase = createSupabaseBrowserClient();
 
-    if (!supabase) {
-        return (
-            <div className="rounded-xl border border-amber-300 bg-amber-50 p-6 text-sm text-amber-900">
-                <strong>Supabase not configured.</strong>
-                <p className="mt-2 leading-relaxed">
-                    Edit <code className="rounded bg-amber-100 px-1">.env.local</code> and set{" "}
-                    <code className="rounded bg-amber-100 px-1">NEXT_PUBLIC_SUPABASE_URL</code> and{" "}
-                    <code className="rounded bg-amber-100 px-1">NEXT_PUBLIC_SUPABASE_ANON_KEY</code> to
-                    real values from your Supabase project, then restart <code>pnpm dev</code>.
-                </p>
-            </div>
-        );
-    }
+    if (!supabase) return <SupabaseSetupNotice />;
+    return <PhoneOtpFlow supabase={supabase} next={next} />;
+}
+
+function SupabaseSetupNotice() {
+    return (
+        <div className="rounded-xl border border-amber-300 bg-amber-50 p-6 text-sm text-amber-900">
+            <strong>Supabase not configured.</strong>
+            <p className="mt-2 leading-relaxed">
+                Edit <code className="rounded bg-amber-100 px-1">.env.local</code> and set{" "}
+                <code className="rounded bg-amber-100 px-1">NEXT_PUBLIC_SUPABASE_URL</code> and{" "}
+                <code className="rounded bg-amber-100 px-1">NEXT_PUBLIC_SUPABASE_ANON_KEY</code> to
+                real values from your Supabase project, then restart <code>pnpm dev</code>.
+            </p>
+        </div>
+    );
+}
+
+function PhoneOtpFlow({
+    supabase,
+    next,
+}: {
+    supabase: SupabaseClient;
+    next?: string;
+}) {
+    const t = useTranslations("auth");
+    const router = useRouter();
 
     const [step, setStep] = useState<Step>("phone");
     const [phone, setPhone] = useState("");
@@ -76,7 +91,7 @@ export function SignInForm({ next }: { next?: string }) {
     return (
         <form
             onSubmit={step === "phone" ? handleSendCode : handleVerify}
-            className="space-y-4 rounded-xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-950"
+            className="space-y-4 rounded-xl border border-cream-200 bg-cream-50 p-6 shadow-sm dark:border-ink-700 dark:bg-ink-800"
         >
             {step === "phone" ? (
                 <>
@@ -101,7 +116,7 @@ export function SignInForm({ next }: { next?: string }) {
                 </>
             ) : (
                 <>
-                    <div className="text-sm text-zinc-500">
+                    <div className="text-sm text-ink-700/70 dark:text-cream-50/60">
                         Code sent to <span className="font-medium">{phone}</span>
                     </div>
                     <div>

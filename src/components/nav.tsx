@@ -3,13 +3,15 @@ import { getTranslations, getLocale } from "next-intl/server";
 import { Button } from "@/components/ui/button";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { BrandMark } from "@/components/brand-mark";
-import { getUserSafe } from "@/lib/supabase/auth";
+import { WhatsAppIcon } from "@/components/whatsapp-icon";
+import { env } from "@/lib/env";
 
 export async function Nav() {
     const t = await getTranslations("nav");
     const locale = (await getLocale()) as "en" | "sw";
-
-    const user = await getUserSafe();
+    const whatsappHref = env.contact.whatsapp
+        ? `https://wa.me/${env.contact.whatsapp.replace(/\D+/g, "")}`
+        : null;
 
     return (
         <header className="sticky top-0 z-30 border-b border-cream-200/80 bg-cream-50/85 backdrop-blur-md dark:border-ink-700 dark:bg-ink-900/85">
@@ -22,20 +24,20 @@ export async function Nav() {
                     <Button asChild variant="ghost" size="sm">
                         <Link href="/houses">{t("browse")}</Link>
                     </Button>
-                    <Button asChild variant="ghost" size="sm">
-                        <Link href="/dashboard/listings/new">{t("list_property")}</Link>
-                    </Button>
                 </nav>
 
                 <div className="flex items-center gap-2">
                     <LanguageSwitcher locale={locale} />
-                    {user ? (
-                        <Button asChild size="sm">
-                            <Link href="/dashboard">{t("dashboard")}</Link>
-                        </Button>
-                    ) : (
-                        <Button asChild size="sm">
-                            <Link href="/sign-in">{t("sign_in")}</Link>
+                    {whatsappHref && (
+                        <Button
+                            asChild
+                            size="sm"
+                            className="bg-[#25D366] text-white hover:bg-[#1ebe5a]"
+                        >
+                            <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
+                                <WhatsAppIcon className="h-4 w-4" />
+                                <span className="hidden sm:inline">Talk to us</span>
+                            </a>
                         </Button>
                     )}
                 </div>
