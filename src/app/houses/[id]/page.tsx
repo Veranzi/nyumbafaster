@@ -111,7 +111,7 @@ export default async function ListingDetailPage({ params }: { params: Promise<Pa
                     <ul className="mt-3 grid grid-cols-2 gap-2 text-sm">
                         {amenityRows(p.amenities).map(([key, label, Icon]) => (
                             <li key={key} className="inline-flex items-center gap-2">
-                                <Icon className="h-4 w-4 text-emerald-600" />
+                                <Icon className="h-4 w-4 text-gold-600" />
                                 {label}
                             </li>
                         ))}

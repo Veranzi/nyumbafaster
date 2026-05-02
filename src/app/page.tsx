@@ -21,7 +21,7 @@ export default async function HomePage() {
     return (
         <>
             {/* HERO ─────────────────────────────────────── */}
-            <section className="border-b border-zinc-200 bg-gradient-to-b from-emerald-50 to-zinc-50 dark:border-zinc-800 dark:from-emerald-950/30 dark:to-zinc-950">
+            <section className="border-b border-zinc-200 bg-gradient-to-b from-gold-50 to-zinc-50 dark:border-zinc-800 dark:from-gold-950/30 dark:to-zinc-950">
                 <div className="mx-auto max-w-6xl px-4 py-14 md:py-24">
                     <h1 className="max-w-3xl text-4xl font-semibold tracking-tight md:text-6xl">
                         {t("hero_title")}
@@ -36,7 +36,7 @@ export default async function HomePage() {
                             <input
                                 name="q"
                                 placeholder={t("search_placeholder")}
-                                className="h-12 w-full rounded-lg border border-zinc-300 bg-white pl-10 pr-3 text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 dark:border-zinc-700 dark:bg-zinc-950"
+                                className="h-12 w-full rounded-lg border border-zinc-300 bg-white pl-10 pr-3 text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 dark:border-zinc-700 dark:bg-zinc-950"
                             />
                         </div>
                         <Button type="submit" size="lg">
@@ -46,15 +46,15 @@ export default async function HomePage() {
 
                     <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-zinc-600 dark:text-zinc-400">
                         <span className="inline-flex items-center gap-2">
-                            <ShieldCheck className="h-4 w-4 text-emerald-600" />
+                            <ShieldCheck className="h-4 w-4 text-gold-600" />
                             {t("trust_badge_1")}
                         </span>
                         <span className="inline-flex items-center gap-2">
-                            <Banknote className="h-4 w-4 text-emerald-600" />
+                            <Banknote className="h-4 w-4 text-gold-600" />
                             {t("trust_badge_2")}
                         </span>
                         <span className="inline-flex items-center gap-2">
-                            <RotateCcw className="h-4 w-4 text-emerald-600" />
+                            <RotateCcw className="h-4 w-4 text-gold-600" />
                             {t("trust_badge_3")}
                         </span>
                     </div>
@@ -69,7 +69,7 @@ export default async function HomePage() {
                         <Link
                             key={e.slug}
                             href={`/houses?q=${encodeURIComponent(e.name)}`}
-                            className="rounded-full border border-zinc-200 bg-white px-3 py-1.5 text-sm hover:border-emerald-500 dark:border-zinc-800 dark:bg-zinc-950"
+                            className="rounded-full border border-zinc-200 bg-white px-3 py-1.5 text-sm hover:border-gold-500 dark:border-zinc-800 dark:bg-zinc-950"
                         >
                             {e.name}
                         </Link>
@@ -104,7 +104,7 @@ export default async function HomePage() {
                                 key={n}
                                 className="rounded-xl border border-zinc-200 p-5 dark:border-zinc-800"
                             >
-                                <div className="text-sm font-semibold text-emerald-700">{`Step ${n}`}</div>
+                                <div className="text-sm font-semibold text-gold-700">{`Step ${n}`}</div>
                                 <div className="mt-1 text-lg font-medium">
                                     {t(`step_${n}_title` as "step_1_title" | "step_2_title" | "step_3_title")}
                                 </div>

@@ -140,7 +140,7 @@ function PhoneOtpFlow({
                     <button
                         type="button"
                         onClick={() => { setStep("phone"); setOtp(""); setError(null); }}
-                        className="block w-full text-center text-xs text-emerald-700 hover:underline"
+                        className="block w-full text-center text-xs text-gold-700 hover:underline"
                     >
                         {t("resend_code")}
                     </button>

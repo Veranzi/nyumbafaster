@@ -1,5 +1,21 @@
 @import "tailwindcss";
 
+/* Gold is the primary brand accent. Neutrals stay on Tailwind's zinc ramp
+ * so the surfaces feel clean rather than warm/cream. */
+@theme {
+    --color-gold-50:  #FFFAEB;
+    --color-gold-100: #FEF0C7;
+    --color-gold-200: #FDDF8F;
+    --color-gold-300: #FCC857;
+    --color-gold-400: #F6B12B;
+    --color-gold-500: #D4960C;
+    --color-gold-600: #A87209;
+    --color-gold-700: #7C540B;
+    --color-gold-800: #5A3D0A;
+    --color-gold-900: #422D08;
+    --color-gold-950: #261905;
+}
+
 :root {
     --background: #fafafa;
     --foreground: #18181b;

@@ -91,7 +91,7 @@ export function SearchFilters() {
                         <button
                             key={e.slug}
                             type="button"
-                            className="rounded-full border border-zinc-200 px-2.5 py-0.5 text-xs hover:border-emerald-500 dark:border-zinc-700"
+                            className="rounded-full border border-zinc-200 px-2.5 py-0.5 text-xs hover:border-gold-500 dark:border-zinc-700"
                             onClick={() => update({ q: e.name })}
                         >
                             {e.name}
