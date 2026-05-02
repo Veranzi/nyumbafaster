@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+/* ─── Brand palette ────────────────────────────────────────
+ * Gold is the primary accent (luxury rental positioning).
+ * Cream is the warm body background that pairs with gold.
+ * Ink is a warm near-black for typographic hierarchy on dark surfaces.
+ */
+@theme {
+    --color-gold-50:  #FFFAEB;
+    --color-gold-100: #FEF0C7;
+    --color-gold-200: #FDDF8F;
+    --color-gold-300: #FCC857;
+    --color-gold-400: #F6B12B;
+    --color-gold-500: #D4960C;
+    --color-gold-600: #A87209;
+    --color-gold-700: #7C540B;
+    --color-gold-800: #5A3D0A;
+    --color-gold-900: #422D08;
+    --color-gold-950: #261905;
+
+    --color-cream-50:  #FBF8F1;
+    --color-cream-100: #F4EEDB;
+    --color-cream-200: #E9DDB5;
+
+    --color-ink-700: #2A2218;
+    --color-ink-800: #181208;
+    --color-ink-900: #0E0A04;
+}
+
+:root {
+    --background: #FBF8F1;          /* cream-50 */
+    --foreground: #181208;          /* ink-800 */
+}
+
+@theme inline {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: #0E0A04;      /* ink-900 */
+        --foreground: #FBF8F1;      /* cream-50 */
+    }
+}
+
+body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans), system-ui, -apple-system, "Segoe UI", sans-serif;
+    /* Subtle grain on cream — invisible at small zooms but adds depth on close inspection */
+    background-image:
+        radial-gradient(circle at 1px 1px, rgba(212, 150, 12, 0.04) 1px, transparent 0);
+    background-size: 24px 24px;
+}
+
+/* Smoother focus rings on the brand color */
+*:focus-visible {
+    outline: 2px solid var(--color-gold-500);
+    outline-offset: 2px;
+}
+
+/* Gold accent underline for prose-y links */
+.prose a, .link-gold {
+    color: var(--color-gold-700);
+    text-decoration: underline;
+    text-decoration-color: var(--color-gold-300);
+    text-underline-offset: 3px;
+}
