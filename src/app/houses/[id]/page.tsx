@@ -52,7 +52,14 @@ export default async function ListingDetailPage({ params }: { params: Promise<Pa
             <div className="grid gap-2 md:grid-cols-3 md:grid-rows-2">
                 <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-zinc-100 md:col-span-2 md:row-span-2 dark:bg-zinc-900">
                     {cover ? (
-                        <Image src={mediaUrl(cover)} alt={p.title} fill className="object-cover" priority />
+                        <Image
+                            src={mediaUrl(cover)}
+                            alt={p.title}
+                            fill
+                            sizes="(min-width: 768px) 66vw, 100vw"
+                            className="object-cover"
+                            priority
+                        />
                     ) : (
                         <div className="flex h-full items-center justify-center text-sm text-zinc-400">
                             No photos yet
@@ -61,7 +68,13 @@ export default async function ListingDetailPage({ params }: { params: Promise<Pa
                 </div>
                 {photos.slice(1, 5).map((m) => (
                     <div key={m.id} className="relative aspect-[4/3] overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-900">
-                        <Image src={mediaUrl(m.storage_path)} alt="" fill className="object-cover" />
+                        <Image
+                            src={mediaUrl(m.storage_path)}
+                            alt=""
+                            fill
+                            sizes="(min-width: 768px) 33vw, 100vw"
+                            className="object-cover"
+                        />
                     </div>
                 ))}
             </div>
@@ -189,7 +202,7 @@ export default async function ListingDetailPage({ params }: { params: Promise<Pa
                     )}
 
                     <a
-                        href={`/report?property=${p.id}`}
+                        href={`/report-scam?listing=${p.id}`}
                         className="block text-center text-xs text-red-600 hover:underline"
                     >
                         {t("report_listing")}
