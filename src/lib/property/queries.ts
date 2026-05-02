@@ -4,7 +4,9 @@
 
 import "server-only";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
+import { isSupabaseConfigured } from "@/lib/env";
 import type { Property, PropertyMedia, PublicProfile } from "@/lib/supabase/types";
+import { demoListItems, demoDetail } from "./demo-listings";
 
 const STORAGE_BASE = `${process.env.NEXT_PUBLIC_SUPABASE_URL ?? ""}/storage/v1/object/public/property-media/`;
 
@@ -45,6 +47,8 @@ export type PropertyListItem = Pick<
 };
 
 export async function listProperties(filters: Filters, limit = 30): Promise<PropertyListItem[]> {
+    if (!isSupabaseConfigured) return demoListItems(filters, limit);
+
     const supabase = await createSupabaseServerClient();
 
     // Lean column set — we don't pull description/amenities for the index page.
@@ -115,7 +119,7 @@ export async function listProperties(filters: Filters, limit = 30): Promise<Prop
             property_type: row.property_type,
             viewing_fee_kes: row.viewing_fee_kes,
             listed_by_agent: row.listed_by_agent,
-            cover_url: cover ? `${STORAGE_BASE}${cover.storage_path}` : null,
+            cover_url: cover ? mediaUrl(cover.storage_path) : null,
             owner: owner ?? null,
         } as PropertyListItem;
     });
@@ -128,6 +132,8 @@ export type PropertyDetail = Property & {
 };
 
 export async function getPropertyById(id: string): Promise<PropertyDetail | null> {
+    if (!isSupabaseConfigured) return demoDetail(id);
+
     const supabase = await createSupabaseServerClient();
 
     type Row = Property & {
@@ -160,5 +166,8 @@ export async function getPropertyById(id: string): Promise<PropertyDetail | null
 }
 
 export function mediaUrl(path: string): string {
+    // Local /public paths (start with /) are served directly by Next.js.
+    // Anything else is a Supabase Storage object key.
+    if (path.startsWith("/") || path.startsWith("http")) return path;
     return `${STORAGE_BASE}${path}`;
 }

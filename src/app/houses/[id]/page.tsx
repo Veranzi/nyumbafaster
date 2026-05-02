@@ -40,7 +40,10 @@ export default async function ListingDetailPage({ params }: { params: Promise<Pa
     if (!p) notFound();
 
     const photos = p.media.filter((m) => m.kind === "photo").sort((a, b) => a.sort_order - b.sort_order);
+    const videos = p.media.filter((m) => m.kind === "video");
     const cover = photos[0]?.storage_path;
+    const walkthrough = videos[0]?.storage_path;
+    const posterPath = photos[0]?.storage_path;
     const estate = findEstate(p.estate.toLowerCase().replace(/\s+/g, "-"));
 
     return (
@@ -62,6 +65,20 @@ export default async function ListingDetailPage({ params }: { params: Promise<Pa
                     </div>
                 ))}
             </div>
+
+            {/* VIDEO WALKTHROUGH ───────────────────────── */}
+            {walkthrough && (
+                <div className="mt-4 overflow-hidden rounded-xl border border-cream-200 bg-black dark:border-ink-700">
+                    <video
+                        src={mediaUrl(walkthrough)}
+                        poster={posterPath ? mediaUrl(posterPath) : undefined}
+                        controls
+                        preload="metadata"
+                        playsInline
+                        className="aspect-video w-full"
+                    />
+                </div>
+            )}
 
             <div className="mt-6 grid gap-8 md:grid-cols-[1fr_320px]">
                 {/* MAIN CONTENT ────────────────────────── */}
