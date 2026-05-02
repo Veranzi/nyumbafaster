@@ -19,7 +19,7 @@ export default async function BookViewingPage({ params }: { params: Promise<Para
     return (
         <div className="mx-auto max-w-xl px-4 py-12">
             <h1 className="text-2xl font-semibold tracking-tight">{t("title")}</h1>
-            <p className="mt-1 text-sm text-zinc-500">
+            <p className="mt-1 text-sm text-ink-700/70 dark:text-cream-50/60">
                 {property.title} — {property.estate} · <span className="tabular-nums">{formatRent(property.rent_kes)}</span>/mo
             </p>
 

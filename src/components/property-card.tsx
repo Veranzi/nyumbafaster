@@ -23,60 +23,64 @@ export function PropertyCard({ p, className }: { p: PropertyCardData; className?
         <Link
             href={`/houses/${p.id}`}
             className={cn(
-                "group block overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm transition hover:shadow-md",
-                "dark:border-zinc-800 dark:bg-zinc-950",
+                "group relative block overflow-hidden rounded-2xl border border-cream-200 bg-cream-50 shadow-sm transition",
+                "hover:-translate-y-0.5 hover:border-gold-300 hover:shadow-[0_12px_30px_-12px_rgba(212,150,12,0.35)]",
+                "dark:border-ink-700 dark:bg-ink-800",
                 className,
             )}
         >
-            <div className="relative aspect-[4/3] w-full bg-zinc-100 dark:bg-zinc-900">
+            <div className="relative aspect-[4/3] w-full overflow-hidden bg-cream-100 dark:bg-ink-900">
                 {p.cover_url ? (
                     <Image
                         src={p.cover_url}
                         alt={p.title}
                         fill
                         sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                        className="object-cover transition group-hover:scale-[1.02]"
+                        className="object-cover transition duration-500 group-hover:scale-[1.04]"
                     />
                 ) : (
-                    <div className="flex h-full items-center justify-center text-xs text-zinc-400">
-                        No photo
+                    <div className="flex h-full items-center justify-center text-xs text-ink-700/40 dark:text-cream-50/40">
+                        No photo yet
                     </div>
                 )}
                 {p.viewing_fee_kes === 0 && (
-                    <Badge variant="success" className="absolute left-2 top-2">
+                    <Badge variant="success" className="absolute left-3 top-3 shadow-sm">
                         Free viewing
                     </Badge>
                 )}
+                <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/15 to-transparent opacity-0 transition group-hover:opacity-100" />
             </div>
 
-            <div className="p-4">
+            <div className="p-5">
                 <div className="flex items-baseline justify-between gap-2">
-                    <div className="text-lg font-semibold tabular-nums">{formatRent(p.rent_kes)}</div>
-                    <div className="text-xs text-zinc-500">/ month</div>
+                    <div className="text-2xl font-semibold tabular-nums tracking-tight text-gold-700 dark:text-gold-400">
+                        {formatRent(p.rent_kes)}
+                    </div>
+                    <div className="text-xs text-ink-700/60 dark:text-cream-50/50">/ month</div>
                 </div>
 
-                <h3 className="mt-1 line-clamp-2 text-sm font-medium text-zinc-800 dark:text-zinc-200">
+                <h3 className="mt-2 line-clamp-2 text-sm font-medium leading-snug text-ink-900 dark:text-cream-50">
                     {p.title}
                 </h3>
 
-                <div className="mt-2 flex items-center gap-3 text-xs text-zinc-500">
+                <div className="mt-3 flex items-center gap-3 text-xs text-ink-700/65 dark:text-cream-50/55">
                     <span className="inline-flex items-center gap-1">
-                        <MapPin className="h-3 w-3" />
+                        <MapPin className="h-3.5 w-3.5 text-gold-600" />
                         {p.estate}
                     </span>
                     <span className="inline-flex items-center gap-1">
-                        <BedDouble className="h-3 w-3" />
+                        <BedDouble className="h-3.5 w-3.5" />
                         {p.bedrooms === 0 ? "Bedsitter" : `${p.bedrooms} bd`}
                     </span>
                     <span className="inline-flex items-center gap-1">
-                        <Bath className="h-3 w-3" />
+                        <Bath className="h-3.5 w-3.5" />
                         {p.bathrooms} ba
                     </span>
                 </div>
 
-                <div className="mt-3 flex items-center justify-between gap-2">
-                    <span className="truncate text-xs text-zinc-600 dark:text-zinc-400">
-                        {p.listed_by_agent ? "Agent" : "Landlord"}: {ownerLabel}
+                <div className="mt-4 flex items-center justify-between gap-2 border-t border-cream-200 pt-3 dark:border-ink-700">
+                    <span className="truncate text-xs text-ink-700/70 dark:text-cream-50/60">
+                        {p.listed_by_agent ? "Agent" : "Landlord"}: <span className="font-medium">{ownerLabel}</span>
                     </span>
                     {p.owner && <VerificationBadge status={p.owner.verification_status} />}
                 </div>

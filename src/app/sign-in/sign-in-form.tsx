@@ -91,7 +91,7 @@ function PhoneOtpFlow({
     return (
         <form
             onSubmit={step === "phone" ? handleSendCode : handleVerify}
-            className="space-y-4 rounded-xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-950"
+            className="space-y-4 rounded-xl border border-cream-200 bg-cream-50 p-6 shadow-sm dark:border-ink-700 dark:bg-ink-800"
         >
             {step === "phone" ? (
                 <>
@@ -116,7 +116,7 @@ function PhoneOtpFlow({
                 </>
             ) : (
                 <>
-                    <div className="text-sm text-zinc-500">
+                    <div className="text-sm text-ink-700/70 dark:text-cream-50/60">
                         Code sent to <span className="font-medium">{phone}</span>
                     </div>
                     <div>
