@@ -11,6 +11,7 @@ import { createSupabaseBrowserClient } from "@/lib/supabase/client";
 import { normalizeKenyanMobile } from "@/lib/format";
 
 type Step = "phone" | "otp";
+type Mode = "phone" | "email";
 
 export function SignInForm({ next }: { next?: string }) {
     // Hook order must be stable, so we resolve the client outside any conditional
@@ -18,7 +19,15 @@ export function SignInForm({ next }: { next?: string }) {
     const supabase = createSupabaseBrowserClient();
 
     if (!supabase) return <SupabaseSetupNotice />;
-    return <PhoneOtpFlow supabase={supabase} next={next} />;
+    return <AuthFlow supabase={supabase} next={next} />;
+}
+
+function AuthFlow({ supabase, next }: { supabase: SupabaseClient; next?: string }) {
+    const [mode, setMode] = useState<Mode>("phone");
+    if (mode === "email") {
+        return <EmailPasswordFlow supabase={supabase} next={next} onSwitch={() => setMode("phone")} />;
+    }
+    return <PhoneOtpFlow supabase={supabase} next={next} onSwitch={() => setMode("email")} />;
 }
 
 function SupabaseSetupNotice() {
@@ -38,9 +47,11 @@ function SupabaseSetupNotice() {
 function PhoneOtpFlow({
     supabase,
     next,
+    onSwitch,
 }: {
     supabase: SupabaseClient;
     next?: string;
+    onSwitch: () => void;
 }) {
     const t = useTranslations("auth");
     const router = useRouter();
@@ -146,6 +157,92 @@ function PhoneOtpFlow({
                     </button>
                 </>
             )}
+
+            {step === "phone" && (
+                <button
+                    type="button"
+                    onClick={onSwitch}
+                    className="block w-full text-center text-xs text-zinc-400 hover:text-zinc-600"
+                >
+                    Sign in with email instead
+                </button>
+            )}
+        </form>
+    );
+}
+
+function EmailPasswordFlow({
+    supabase,
+    next,
+    onSwitch,
+}: {
+    supabase: SupabaseClient;
+    next?: string;
+    onSwitch: () => void;
+}) {
+    const router = useRouter();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState<string | null>(null);
+    const [pending, start] = useTransition();
+
+    function handleSubmit(e: React.FormEvent) {
+        e.preventDefault();
+        setError(null);
+        start(async () => {
+            const { error } = await supabase.auth.signInWithPassword({ email, password });
+            if (error) {
+                setError(error.message);
+                return;
+            }
+            router.push(next ?? "/dashboard");
+            router.refresh();
+        });
+    }
+
+    return (
+        <form
+            onSubmit={handleSubmit}
+            className="space-y-4 rounded-xl border border-cream-200 bg-cream-50 p-6 shadow-sm dark:border-ink-700 dark:bg-ink-800"
+        >
+            <div>
+                <Label htmlFor="email">Email</Label>
+                <Input
+                    id="email"
+                    type="email"
+                    inputMode="email"
+                    autoComplete="email"
+                    placeholder="you@example.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    autoFocus
+                    required
+                    className="mt-1.5"
+                />
+            </div>
+            <div>
+                <Label htmlFor="password">Password</Label>
+                <Input
+                    id="password"
+                    type="password"
+                    autoComplete="current-password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                    className="mt-1.5"
+                />
+            </div>
+            {error && <p className="text-sm text-red-600">{error}</p>}
+            <Button type="submit" className="w-full" disabled={pending}>
+                {pending ? "…" : "Sign in"}
+            </Button>
+            <button
+                type="button"
+                onClick={onSwitch}
+                className="block w-full text-center text-xs text-zinc-400 hover:text-zinc-600"
+            >
+                Sign in with phone instead
+            </button>
         </form>
     );
 }
