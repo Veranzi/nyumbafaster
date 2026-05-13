@@ -42,14 +42,14 @@ export default async function AdminUsersPage({
     const supabase = await createSupabaseServerClient();
     let query = supabase
         .from("profiles")
-        .select("id,full_name,agency_name,phone,role,verification_status,created_at")
-        .order("created_at", { ascending: false })
-        .limit(100)
-        .returns<Row[]>();
+        .select("id,full_name,agency_name,phone,role,verification_status,created_at");
 
     if (filterRole) query = query.eq("role", filterRole);
 
-    const { data: users } = await query;
+    const { data: users } = await query
+        .order("created_at", { ascending: false })
+        .limit(100)
+        .returns<Row[]>();
 
     const tabs = [
         { label: "All", value: "" },

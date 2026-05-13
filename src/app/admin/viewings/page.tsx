@@ -54,14 +54,14 @@ export default async function AdminViewingsPage({
             "property:properties(title,estate)," +
             "tenant:profiles!viewings_tenant_id_fkey(full_name,phone)," +
             "owner:profiles!viewings_owner_id_fkey(full_name,agency_name,phone)",
-        )
-        .order("scheduled_for", { ascending: false })
-        .limit(100)
-        .returns<Row[]>();
+        );
 
     if (filterEscrow) query = query.eq("escrow_status", filterEscrow);
 
-    const { data: viewings } = await query;
+    const { data: viewings } = await query
+        .order("scheduled_for", { ascending: false })
+        .limit(100)
+        .returns<Row[]>();
 
     const tabs = [
         { label: "All", value: "" },
