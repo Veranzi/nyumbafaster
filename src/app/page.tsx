@@ -24,8 +24,8 @@ export default async function HomePage() {
     return (
         <>
             {/* HERO ─────────────────────────────────────── */}
-            <section className="relative overflow-hidden border-b border-cream-200 dark:border-ink-700">
-                <div className="absolute inset-0 -z-10 bg-gradient-to-br from-gold-50 via-cream-50 to-cream-100 dark:from-gold-950/20 dark:via-ink-900 dark:to-ink-800" />
+            <section className="relative overflow-hidden border-b border-stone-200/60 dark:border-ink-700">
+                <div className="absolute inset-0 -z-10 bg-gradient-to-b from-stone-100 via-stone-50 to-cream-50 dark:from-gold-950/20 dark:via-ink-900 dark:to-ink-800" />
                 <div className="absolute right-[-10%] top-[-15%] -z-10 h-[500px] w-[500px] rounded-full bg-gold-200/30 blur-3xl dark:bg-gold-700/20" />
 
                 <div className="mx-auto max-w-6xl px-4 py-16 md:py-28">
