@@ -9,7 +9,7 @@ export function BrandMark({ className }: { className?: string }) {
                 alt="Q-uills"
                 width={677}
                 height={369}
-                className="h-12 w-auto sm:h-14"
+                className="h-12 w-auto mix-blend-multiply dark:mix-blend-screen sm:h-14"
                 priority
             />
         </span>
