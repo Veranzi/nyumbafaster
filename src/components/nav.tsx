@@ -14,7 +14,7 @@ export async function Nav() {
         : null;
 
     return (
-        <header className="sticky top-0 z-30 border-b border-stone-200/60 bg-stone-100/90 backdrop-blur-md dark:border-ink-700 dark:bg-ink-900/85">
+        <header className="sticky top-0 z-30 border-b border-cream-200/80 bg-cream-50/85 backdrop-blur-md dark:border-ink-700 dark:bg-ink-900/85">
             <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
                 <Link href="/" className="group">
                     <BrandMark className="transition-opacity group-hover:opacity-80" />

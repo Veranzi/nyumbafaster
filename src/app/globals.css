@@ -22,13 +22,6 @@
     --color-cream-100: #F4EEDB;
     --color-cream-200: #E9DDB5;
 
-    /* Matches the marble-wall backdrop in the Q-uills logo PNG, so the
-     * logo blends into the navbar / hero instead of reading as a boxed
-     * rectangle. */
-    --color-stone-50:  #DEDCD2;
-    --color-stone-100: #D5D3C7;
-    --color-stone-200: #C8C5BC;
-
     --color-ink-700: #2A2218;
     --color-ink-800: #181208;
     --color-ink-900: #0E0A04;
