@@ -7,12 +7,12 @@ export function BrandMark({ className }: { className?: string }) {
             <Image
                 src="/Q-uillsLogo-removebg-preview.png"
                 alt=""
-                width={28}
-                height={28}
-                className="h-7 w-7 object-contain"
+                width={48}
+                height={48}
+                className="h-10 w-10 object-contain sm:h-12 sm:w-12"
                 priority
             />
-            <span className="text-base">
+            <span className="text-lg sm:text-xl">
                 <span className="text-gold-600">Q</span>
                 <span className="text-ink-900 dark:text-cream-50">-uills</span>
             </span>
