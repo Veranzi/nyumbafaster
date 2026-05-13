@@ -13,9 +13,9 @@ export default function AboutPage() {
 
     return (
         <>
-            <h1 className="text-3xl font-semibold tracking-tight">About NyumbaFaster</h1>
+            <h1 className="text-3xl font-semibold tracking-tight">About Q-uills</h1>
             <p className="mt-3 text-zinc-600 dark:text-zinc-400">
-                NyumbaFaster is a Kenya-focused rental marketplace. We help tenants find
+                Q-uills is a Kenya-focused rental marketplace. We help tenants find
                 verified houses and apartments without the usual run-around — fake listings,
                 ghost agents, and viewing fees lost to no-shows.
             </p>

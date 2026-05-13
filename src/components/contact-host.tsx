@@ -1,4 +1,4 @@
-// Sidebar block that gives a tenant two ways to reach NyumbaFaster about a
+// Sidebar block that gives a tenant two ways to reach Q-uills about a
 // listing — WhatsApp (primary) and email (fallback). Pre-fills both with the
 // listing context so the operator sees what the visitor is asking about.
 

@@ -1,4 +1,4 @@
-# NyumbaFaster
+# Q-uills
 
 A Kenya-focused rental marketplace. Web MVP for Nairobi (Kilimani launch market).
 Verified landlords and agents, escrowed M-Pesa viewing fees, in-app chat.
@@ -64,7 +64,7 @@ takes ~3 working days to approve.
 ## Project layout
 
 ```
-keja/
+quills/
 ├── messages/{en,sw}.json        i18n strings
 ├── middleware.ts                Supabase session refresh
 ├── supabase/migrations/         schema + RLS + RPCs (0001…0010)
@@ -130,4 +130,4 @@ keja/
   read `properties` — it's currently scoped to `status = 'active'` which is
   correct, but audit before opening the API to the public.
 - B2C disbursement in `/api/viewings/[id]/confirm` is a TODO. Until it ships,
-  NyumbaFaster settles agents weekly via spreadsheet → manual M-Pesa transfer.
+  Q-uills settles agents weekly via spreadsheet → manual M-Pesa transfer.

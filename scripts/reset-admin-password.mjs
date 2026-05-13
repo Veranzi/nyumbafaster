@@ -35,7 +35,7 @@ const supabase = createClient(supabaseUrl, serviceKey, {
 });
 
 const EMAIL = "quills@admin.com";
-const NEW_PASSWORD = "NyumbaAdmin#" + Math.random().toString(36).slice(2, 8).toUpperCase();
+const NEW_PASSWORD = "QuillsAdmin#" + Math.random().toString(36).slice(2, 8).toUpperCase();
 
 const { data: list, error: listErr } = await supabase.auth.admin.listUsers();
 if (listErr) {

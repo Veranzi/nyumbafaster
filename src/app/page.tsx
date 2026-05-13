@@ -155,7 +155,7 @@ export default async function HomePage() {
                                 Tell us what you're looking for. We'll line up the viewings.
                             </h2>
                             <p className="mt-4 text-cream-50/70">
-                                Message the NyumbaFaster team on WhatsApp with the area, budget and dates that
+                                Message the Q-uills team on WhatsApp with the area, budget and dates that
                                 work for you. We'll come back with shortlisted, host-confirmed options —
                                 usually within the day.
                             </p>
@@ -163,7 +163,7 @@ export default async function HomePage() {
                                 {env.contact.whatsapp && (
                                     <Button asChild size="lg" className="bg-[#25D366] text-white hover:bg-[#1ebe5a]">
                                         <a
-                                            href={`https://wa.me/${env.contact.whatsapp.replace(/\D+/g, "")}?text=${encodeURIComponent("Hi NyumbaFaster, I'm looking for a rental in ")}`}
+                                            href={`https://wa.me/${env.contact.whatsapp.replace(/\D+/g, "")}?text=${encodeURIComponent("Hi Q-uills, I'm looking for a rental in ")}`}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >

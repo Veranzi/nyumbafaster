@@ -9,7 +9,7 @@ export default function PrivacyPage() {
             <p className="mt-2 text-sm text-zinc-500">Last updated: 3 May 2026</p>
 
             <p className="mt-6 text-zinc-700 dark:text-zinc-300">
-                This page explains what NyumbaFaster collects, how we use it, and the rights
+                This page explains what Q-uills collects, how we use it, and the rights
                 you have under the Kenya Data Protection Act, 2019. Plain English first; the
                 full registration with the Office of the Data Protection Commissioner (ODPC)
                 follows once we move past the pilot.

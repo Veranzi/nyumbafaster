@@ -24,7 +24,7 @@ export default async function BookViewingPage({ params }: { params: Promise<Para
             </p>
 
             <div className="mt-6 rounded-xl border border-gold-200 bg-gold-50 p-4 text-sm text-gold-900 dark:border-gold-900/40 dark:bg-gold-950/30 dark:text-gold-200">
-                We'll open WhatsApp with your details so the NyumbaFaster team can confirm your viewing.
+                We'll open WhatsApp with your details so the Q-uills team can confirm your viewing.
                 No account needed.
             </div>
 

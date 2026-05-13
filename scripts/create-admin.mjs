@@ -48,7 +48,7 @@ const supabase = createClient(supabaseUrl, serviceKey, {
 
 const EMAIL = "quills@admin.com";
 // Temporary password — change after first login
-const PASSWORD = "NyumbaAdmin#" + Math.random().toString(36).slice(2, 8).toUpperCase();
+const PASSWORD = "QuillsAdmin#" + Math.random().toString(36).slice(2, 8).toUpperCase();
 
 async function main() {
     console.log(`Creating admin user: ${EMAIL} …`);

@@ -1,6 +1,6 @@
 {
   "brand": {
-    "name": "NyumbaFaster",
+    "name": "Q-uills",
     "tagline": "Tafuta nyumba Kenya bila usumbufu."
   },
   "nav": {
@@ -22,7 +22,7 @@
     "trust_badge_2": "Ada ya kutembelea inayohifadhiwa M-Pesa",
     "trust_badge_3": "Marejesho kwa matangazo ya uongo",
     "popular_estates": "Maarufu Nairobi",
-    "how_it_works_title": "NyumbaFaster inafanyaje kazi",
+    "how_it_works_title": "Q-uills inafanyaje kazi",
     "step_1_title": "Tafuta na orodhesha",
     "step_1_body": "Chuja kwa estate, bei, vyumba na huduma. Hifadhi utafutaji upate ujumbe SMS nyumba mpya zikiingia.",
     "step_2_title": "Panga ziara",
@@ -91,7 +91,7 @@
     "report_listing": "Ripoti tangazo"
   },
   "auth": {
-    "sign_in_title": "Ingia NyumbaFaster",
+    "sign_in_title": "Ingia Q-uills",
     "sign_in_subtitle": "Tutakutumia msimbo wa nambari 6.",
     "phone_label": "Nambari ya simu",
     "phone_placeholder": "07XX XXX XXX au +2547XX XXX XXX",
@@ -130,7 +130,7 @@
     "delete": "Futa"
   },
   "footer": {
-    "about": "Kuhusu NyumbaFaster",
+    "about": "Kuhusu Q-uills",
     "contact": "Wasiliana",
     "report_scam": "Ripoti udanganyifu",
     "privacy": "Faragha",
