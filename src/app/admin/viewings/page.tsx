@@ -47,21 +47,19 @@ export default async function AdminViewingsPage({
     const filterEscrow = VALID_ESCROW.includes(escrow as EscrowStatus) ? (escrow as EscrowStatus) : null;
 
     const supabase = await createSupabaseServerClient();
-    let query = supabase
+    const base = supabase
         .from("viewings")
         .select(
             "id,status,escrow_status,viewing_fee_kes,scheduled_for,property_id," +
             "property:properties(title,estate)," +
             "tenant:profiles!viewings_tenant_id_fkey(full_name,phone)," +
             "owner:profiles!viewings_owner_id_fkey(full_name,agency_name,phone)",
-        )
+        );
+
+    const { data: viewings } = await (filterEscrow ? base.eq("escrow_status", filterEscrow) : base)
         .order("scheduled_for", { ascending: false })
         .limit(100)
         .returns<Row[]>();
-
-    if (filterEscrow) query = query.eq("escrow_status", filterEscrow);
-
-    const { data: viewings } = await query;
 
     const tabs = [
         { label: "All", value: "" },

@@ -40,16 +40,14 @@ export default async function AdminUsersPage({
     const filterRole = VALID_ROLES.includes(role as UserRole) ? (role as UserRole) : null;
 
     const supabase = await createSupabaseServerClient();
-    let query = supabase
+    const base = supabase
         .from("profiles")
-        .select("id,full_name,agency_name,phone,role,verification_status,created_at")
+        .select("id,full_name,agency_name,phone,role,verification_status,created_at");
+
+    const { data: users } = await (filterRole ? base.eq("role", filterRole) : base)
         .order("created_at", { ascending: false })
         .limit(100)
         .returns<Row[]>();
-
-    if (filterRole) query = query.eq("role", filterRole);
-
-    const { data: users } = await query;
 
     const tabs = [
         { label: "All", value: "" },

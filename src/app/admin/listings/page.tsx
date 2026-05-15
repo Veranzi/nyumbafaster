@@ -36,19 +36,17 @@ export default async function AdminListingsPage({
     const filterStatus = VALID_STATUSES.includes(status as ListingStatus) ? (status as ListingStatus) : null;
 
     const supabase = await createSupabaseServerClient();
-    let query = supabase
+    const base = supabase
         .from("properties")
         .select(
             "id,title,estate,bedrooms,rent_kes,status,created_at," +
             "owner:profiles!properties_owner_id_fkey(full_name,agency_name,phone)",
-        )
+        );
+
+    const { data: listings } = await (filterStatus ? base.eq("status", filterStatus) : base)
         .order("created_at", { ascending: false })
         .limit(100)
         .returns<Row[]>();
-
-    if (filterStatus) query = query.eq("status", filterStatus);
-
-    const { data: listings } = await query;
 
     const tabs = [
         { label: "All", value: "" },
