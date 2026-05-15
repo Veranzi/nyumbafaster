@@ -8,7 +8,7 @@ import { createSupabaseBrowserClient } from "@/lib/supabase/client";
 
 type MediaItem = {
     id: string;
-    kind: "photo" | "video";
+    kind: "photo" | "video" | "tour_360";
     storage_path: string;
     sort_order: number;
     url: string;
