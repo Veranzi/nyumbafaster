@@ -7,7 +7,7 @@ insert into public.profiles (id, phone, full_name, role, agency_name, verificati
 values
     ('00000000-0000-0000-0000-000000000a01', '+254700000001', 'Brian Kilimani Realtors', 'agent',    'Kilimani Realtors', 'verified', now(), 'en'),
     ('00000000-0000-0000-0000-000000000a02', '+254700000002', 'Mama Wanjiku',              'landlord', null,                'verified', now(), 'en'),
-    ('00000000-0000-0000-0000-000000000t01', '+254700000010', 'Test Tenant',               'tenant',   null,                'verified', now(), 'en')
+    ('00000000-0000-0000-0000-000000000b01', '+254700000010', 'Test Tenant',               'tenant',   null,                'verified', now(), 'en')
 on conflict (id) do nothing;
 
 -- A handful of Kilimani listings for the dev UI to render.

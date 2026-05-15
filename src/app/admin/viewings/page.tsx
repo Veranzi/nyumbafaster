@@ -56,7 +56,9 @@ export default async function AdminViewingsPage({
             "owner:profiles!viewings_owner_id_fkey(full_name,agency_name,phone)",
         );
 
-    const { data: viewings } = await (filterEscrow ? base.eq("escrow_status", filterEscrow) : base)
+    if (filterEscrow) query = query.eq("escrow_status", filterEscrow);
+
+    const { data: viewings } = await query
         .order("scheduled_for", { ascending: false })
         .limit(100)
         .returns<Row[]>();

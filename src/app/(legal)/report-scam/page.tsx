@@ -44,7 +44,7 @@ export default async function ReportScamPage({
 
     const wa = env.contact.whatsapp
         ? `https://wa.me/${env.contact.whatsapp.replace(/\D+/g, "")}` +
-          `?text=${encodeURIComponent("Hi NyumbaFaster, I want to report a suspicious listing or behaviour:\n\n" + reportBody)}`
+          `?text=${encodeURIComponent("Hi Q-uills, I want to report a suspicious listing or behaviour:\n\n" + reportBody)}`
         : null;
     const email = env.contact.email
         ? `mailto:${env.contact.email}` +

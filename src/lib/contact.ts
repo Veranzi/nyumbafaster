@@ -21,7 +21,7 @@ export type InquiryDetails = {
 
 function buildBody(listing: ListingContext, who?: InquiryDetails): string {
     const lines: string[] = [
-        "Hi NyumbaFaster, I'd like to book a viewing for:",
+        "Hi Q-uills, I'd like to book a viewing for:",
         `*${listing.title}*`,
         `Estate: ${listing.estate}`,
         `Rent: ${formatRent(listing.rentKes)}/mo`,

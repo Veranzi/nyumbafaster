@@ -10,7 +10,7 @@ const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-    title: { default: "NyumbaFaster — Verified rentals in Kenya", template: "%s · NyumbaFaster" },
+    title: { default: "Q-uills — Verified rentals in Kenya", template: "%s · Q-uills" },
     description:
         "Find a home in Nairobi without the run-around. Verified landlords, escrowed viewing fees, instant M-Pesa payments.",
     metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000"),

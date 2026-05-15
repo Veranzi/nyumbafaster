@@ -1,6 +1,6 @@
 {
   "brand": {
-    "name": "NyumbaFaster",
+    "name": "Q-uills",
     "tagline": "Find a home in Kenya without the run-around."
   },
   "nav": {
@@ -22,7 +22,7 @@
     "trust_badge_2": "M-Pesa escrowed viewing fees",
     "trust_badge_3": "Refunds for ghost listings",
     "popular_estates": "Popular in Nairobi",
-    "how_it_works_title": "How NyumbaFaster works",
+    "how_it_works_title": "How Q-uills works",
     "step_1_title": "Search & shortlist",
     "step_1_body": "Filter by estate, price, bedrooms and amenities. Save searches for SMS alerts when new homes drop.",
     "step_2_title": "Book a viewing",
@@ -91,7 +91,7 @@
     "report_listing": "Report this listing"
   },
   "auth": {
-    "sign_in_title": "Sign in to NyumbaFaster",
+    "sign_in_title": "Sign in to Q-uills",
     "sign_in_subtitle": "We'll text you a 6-digit code.",
     "phone_label": "Phone number",
     "phone_placeholder": "07XX XXX XXX or +2547XX XXX XXX",
@@ -130,7 +130,7 @@
     "delete": "Delete"
   },
   "footer": {
-    "about": "About NyumbaFaster",
+    "about": "About Q-uills",
     "contact": "Contact",
     "report_scam": "Report a scam",
     "privacy": "Privacy",

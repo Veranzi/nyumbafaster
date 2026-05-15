@@ -15,7 +15,7 @@ export default function ContactPage() {
         <>
             <h1 className="text-3xl font-semibold tracking-tight">Contact us</h1>
             <p className="mt-3 text-zinc-600 dark:text-zinc-400">
-                Fastest way to reach the NyumbaFaster team is WhatsApp — we usually reply
+                Fastest way to reach the Q-uills team is WhatsApp — we usually reply
                 within the day.
             </p>
 
@@ -58,7 +58,7 @@ export default function ContactPage() {
 
             <h2 className="mt-10 text-xl font-semibold">For landlords and agents</h2>
             <p className="mt-3 text-zinc-700 dark:text-zinc-300">
-                If you'd like to have your property listed on NyumbaFaster, send us a
+                If you'd like to have your property listed on Q-uills, send us a
                 WhatsApp with the unit address, photos, and rent. We'll come back with
                 next steps.
             </p>

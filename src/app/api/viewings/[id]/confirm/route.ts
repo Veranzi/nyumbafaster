@@ -1,7 +1,7 @@
 // POST /api/viewings/[id]/confirm
 //
 // Both parties confirm the viewing happened → escrow releases to host (minus
-// NyumbaFaster's commission). If tenant marks "no show" or "fake listing", we hold and
+// Q-uills's commission). If tenant marks "no show" or "fake listing", we hold and
 // open a dispute — funds release to neither side until a human reviews.
 //
 // Bidirectional confirmation prevents either side gaming the system. MVP only

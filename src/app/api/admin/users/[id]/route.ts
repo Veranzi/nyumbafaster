@@ -31,20 +31,24 @@ export async function POST(
     const role = formData.get("role") as string | null;
     const verificationStatus = formData.get("verification_status") as string | null;
 
-    const update: Record<string, string> = {};
+    const update: Partial<{
+        role: UserRole;
+        verification_status: VerificationStatus;
+        verified_at: string;
+    }> = {};
 
     if (role !== null) {
         if (!VALID_ROLES.includes(role as UserRole)) {
             return NextResponse.json({ error: "Invalid role" }, { status: 400 });
         }
-        update.role = role;
+        update.role = role as UserRole;
     }
 
     if (verificationStatus !== null) {
         if (!VALID_VERIFY.includes(verificationStatus as VerificationStatus)) {
             return NextResponse.json({ error: "Invalid verification_status" }, { status: 400 });
         }
-        update.verification_status = verificationStatus;
+        update.verification_status = verificationStatus as VerificationStatus;
         if (verificationStatus === "verified") {
             update.verified_at = new Date().toISOString();
         }

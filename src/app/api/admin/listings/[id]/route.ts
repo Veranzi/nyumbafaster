@@ -25,9 +25,9 @@ export async function POST(
 
     const { id } = await params;
     const formData = await request.formData();
-    const status = formData.get("status") as string;
+    const status = formData.get("status") as ListingStatus;
 
-    if (!VALID_STATUSES.includes(status as ListingStatus)) {
+    if (!VALID_STATUSES.includes(status)) {
         return NextResponse.json({ error: "Invalid status" }, { status: 400 });
     }
 
