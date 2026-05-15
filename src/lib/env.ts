@@ -41,6 +41,9 @@ export const env = {
         whatsapp: process.env.NEXT_PUBLIC_CONTACT_WHATSAPP ?? "",
         email:    process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "",
     },
+    anthropic: {
+        apiKey: process.env.ANTHROPIC_API_KEY ?? "",
+    },
 } as const;
 
 /**
