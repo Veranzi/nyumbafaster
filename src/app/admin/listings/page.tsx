@@ -43,9 +43,7 @@ export default async function AdminListingsPage({
             "owner:profiles!properties_owner_id_fkey(full_name,agency_name,phone)",
         );
 
-    if (filterStatus) query = query.eq("status", filterStatus);
-
-    const { data: listings } = await query
+    const { data: listings } = await (filterStatus ? base.eq("status", filterStatus) : base)
         .order("created_at", { ascending: false })
         .limit(100)
         .returns<Row[]>();

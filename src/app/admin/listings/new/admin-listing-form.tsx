@@ -141,7 +141,8 @@ export function AdminListingForm() {
                 setSubmitError(body.error ?? `Failed (${res.status})`);
                 return;
             }
-            router.push("/admin/listings");
+            const { id } = await res.json();
+            router.push(`/admin/listings/${id}/media`);
         });
     }
 
