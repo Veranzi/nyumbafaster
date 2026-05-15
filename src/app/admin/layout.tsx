@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { LayoutDashboard, ListOrdered, Users, Calendar, ShieldCheck, LogOut } from "lucide-react";
+import { LayoutDashboard, ListOrdered, PlusCircle, Users, Calendar, ShieldCheck, LogOut } from "lucide-react";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { getUserSafe } from "@/lib/supabase/auth";
 
@@ -32,6 +32,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
                 <aside className="space-y-1 text-sm">
                     <NavLink href="/admin" icon={LayoutDashboard}>Overview</NavLink>
                     <NavLink href="/admin/listings" icon={ListOrdered}>Listings</NavLink>
+                    <NavLink href="/admin/listings/new" icon={PlusCircle}>Add listing</NavLink>
                     <NavLink href="/admin/users" icon={Users}>Users</NavLink>
                     <NavLink href="/admin/viewings" icon={Calendar}>Viewings</NavLink>
                     <NavLink href="/admin/kyc" icon={ShieldCheck}>KYC queue</NavLink>
