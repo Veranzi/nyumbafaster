@@ -90,7 +90,13 @@ export type Database = {
             >;
             property_media: Table<
                 PropertyMedia,
-                Omit<PropertyMedia, "id"> & { id?: string }
+                Omit<PropertyMedia, "id" | "width" | "height" | "duration_s" | "sort_order"> & {
+                    id?: string;
+                    width?: number | null;
+                    height?: number | null;
+                    duration_s?: number | null;
+                    sort_order?: number;
+                }
             >;
             property_views: Table<
                 { property_id: string; viewer_id: string | null; viewed_at: string },
