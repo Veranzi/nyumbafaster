@@ -47,7 +47,7 @@ export default async function AdminViewingsPage({
     const filterEscrow = VALID_ESCROW.includes(escrow as EscrowStatus) ? (escrow as EscrowStatus) : null;
 
     const supabase = await createSupabaseServerClient();
-    let query = supabase
+    const base = supabase
         .from("viewings")
         .select(
             "id,status,escrow_status,viewing_fee_kes,scheduled_for,property_id," +

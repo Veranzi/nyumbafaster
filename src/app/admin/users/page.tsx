@@ -40,7 +40,7 @@ export default async function AdminUsersPage({
     const filterRole = VALID_ROLES.includes(role as UserRole) ? (role as UserRole) : null;
 
     const supabase = await createSupabaseServerClient();
-    let query = supabase
+    const base = supabase
         .from("profiles")
         .select("id,full_name,agency_name,phone,role,verification_status,created_at");
 

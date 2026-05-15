@@ -36,7 +36,7 @@ export default async function AdminListingsPage({
     const filterStatus = VALID_STATUSES.includes(status as ListingStatus) ? (status as ListingStatus) : null;
 
     const supabase = await createSupabaseServerClient();
-    let query = supabase
+    const base = supabase
         .from("properties")
         .select(
             "id,title,estate,bedrooms,rent_kes,status,created_at," +
