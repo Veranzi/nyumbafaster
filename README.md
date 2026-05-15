@@ -108,7 +108,7 @@ keja/
 3. User completes flow on Smile's domain.
 4. Smile → `POST /api/smile-id/webhook` → updates `verifications` + `profiles.verification_status`.
 
-## Launch checklist (do not skip)
+## Launch checklist (do not skip)..
 
 | Item                                                              | Lead time   |
 |-------------------------------------------------------------------|-------------|
